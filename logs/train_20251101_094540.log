@@ -1,0 +1,27 @@
+[2025-11-01 09:45:40,598] INFO: ===== Train Market DiT (start) =====
+[2025-11-01 09:45:40,599] INFO: Args: {'data': 'data/BTCUSDT_4h.csv', 'win': 128, 'batch_size': 64, 'epochs': 15, 'lr': 0.0003, 'wd': 0.0001, 'workers': 4, 'ckpt': 'user_data/models/market_dit.pt', 'log': 'logs/train_20251101_094540.log'}
+[2025-11-01 09:45:40,599] INFO: Loading data from: data/BTCUSDT_4h.csv
+[2025-11-01 09:45:40,599] ERROR: Training failed:
+[2025-11-01 09:45:40,601] ERROR: Traceback (most recent call last):
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 94, in main
+    train_one(df_path=args.data, out_ckpt=args.ckpt, win=args.win,
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 40, in train_one
+    df = pd.read_csv(df_path)
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/BTCUSDT_4h.csv'
+

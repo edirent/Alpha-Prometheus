@@ -1,0 +1,16 @@
+{
+  "task": "sr-detection",
+  "seq_len": 128,
+  "timeframe": "15m",
+  "pair": "BTC/USDT",
+  "features": [
+    "ret",
+    "hl_spread",
+    "oc_spread",
+    "ema12",
+    "sma20",
+    "atr14",
+    "vol_chg",
+    "close"
+  ]
+}

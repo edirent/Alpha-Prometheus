@@ -1,0 +1,14 @@
+[2025-11-01 10:30:50,523] INFO: ===== Train Market DiT (start) =====
+[2025-11-01 10:30:50,523] INFO: Args: {'data': 'data/binance/BTC_USDT-15m.feather', 'win': 128, 'batch_size': 64, 'epochs': 15, 'lr': 0.0003, 'wd': 0.0001, 'workers': 4, 'ckpt': 'user_data/models/market_dit.pt', 'log': 'logs/train_20251101_103050.log', 'amp': True, 'seed': 42, 'resume': None}
+[2025-11-01 10:30:50,523] INFO: Loading data from: data/binance/BTC_USDT-15m.feather
+[2025-11-01 10:30:50,523] ERROR: Training failed:
+[2025-11-01 10:30:50,523] ERROR: Traceback (most recent call last):
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 256, in main
+    train_one(df_path=args.data,
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 159, in train_one
+    df = read_any_df(df_path)
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 68, in read_any_df
+    raise FileNotFoundError(f"Data file not found: {path}")
+FileNotFoundError: Data file not found: data/binance/BTC_USDT-15m.feather
+

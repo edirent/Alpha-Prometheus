@@ -1,0 +1,38 @@
+[2025-11-01 11:58:43,125] INFO: ===== Train Market DiT (start) =====
+[2025-11-01 11:58:43,125] INFO: Args: {'data': 'user_data/data/binance/BTC_USDT-15m.feather', 'win': 128, 'batch_size': 64, 'epochs': 15, 'lr': 0.0003, 'wd': 0.0001, 'workers': 4, 'ckpt': 'user_data/models/market_dit.pt', 'log': 'logs/train_20251101_115843.log', 'amp': True, 'seed': 42, 'resume': None}
+[2025-11-01 11:58:43,125] INFO: Loading data from: user_data/data/binance/BTC_USDT-15m.feather
+[2025-11-01 11:58:43,167] INFO: Data loaded. shape=(169182, 6) head=[{'date': Timestamp('2021-01-01 00:00:00+0000', tz='UTC'), 'open': 28923.63, 'high': 29017.5, 'low': 28690.17, 'close': 28752.8, 'volume': 840.077569}, {'date': Timestamp('2021-01-01 00:15:00+0000', tz='UTC'), 'open': 28752.8, 'high': 28875.55, 'low': 28720.91, 'close': 28836.63, 'volume': 480.611179}]
+[2025-11-01 11:58:43,168] INFO: Building market tensors (win=128) ...
+[2025-11-01 11:58:51,046] INFO: Tensors ready. X=(169053, 8, 16, 16) Y=(169053,) (pos=85612 neg=83441)
+[2025-11-01 11:58:51,232] INFO: Device = cuda
+[2025-11-01 11:58:53,252] INFO: Start training: epochs=15 bs=64 lr=0.0003 amp=True
+[2025-11-01 11:58:53,623] ERROR: Training failed:
+[2025-11-01 11:58:53,627] ERROR: Traceback (most recent call last):
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 256, in main
+    train_one(df_path=args.data,
+  File "/home/edirent/Alpha-Prometheus/research/train_dit.py", line 208, in train_one
+    logits = model(xb)
+             ^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/Alpha-Prometheus/research/Simple_DiT.py", line 54, in forward
+    h = self.patch_embed(x)          # (B, D, H, W)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 548, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/edirent/miniconda3/envs/quant/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 543, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: Input type (double) and bias type (c10::Half) should be the same
+

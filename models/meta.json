@@ -1,0 +1,17 @@
+{
+  "feature_cols": [
+    "ret",
+    "log_r",
+    "hl_spread",
+    "oc_spread",
+    "sma20",
+    "ema12",
+    "rsi14",
+    "vol_chg"
+  ],
+  "seq_len": 256,
+  "horizon": 4,
+  "timeframe": "15m",
+  "pair": "BTC/USDT",
+  "exchange": "binance"
+}

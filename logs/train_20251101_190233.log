@@ -1,0 +1,26 @@
+[2025-11-01 19:02:33,563] INFO: ===== Train Market DiT (start) =====
+[2025-11-01 19:02:33,563] INFO: Args: {'data': 'user_data/data/binance/BTC_USDT-15m.feather', 'win': 128, 'batch_size': 64, 'epochs': 15, 'lr': 0.0001, 'wd': 0.0001, 'workers': 4, 'ckpt': 'user_data/models/market_dit.pt', 'log': 'logs/train_20251101_190233.log', 'amp': True, 'seed': 42, 'resume': None}
+[2025-11-01 19:02:33,563] INFO: Loading data from: user_data/data/binance/BTC_USDT-15m.feather
+[2025-11-01 19:02:33,613] INFO: Data loaded. shape=(169182, 6) head=[{'date': Timestamp('2021-01-01 00:00:00+0000', tz='UTC'), 'open': 28923.63, 'high': 29017.5, 'low': 28690.17, 'close': 28752.8, 'volume': 840.077569}, {'date': Timestamp('2021-01-01 00:15:00+0000', tz='UTC'), 'open': 28752.8, 'high': 28875.55, 'low': 28720.91, 'close': 28836.63, 'volume': 480.611179}]
+[2025-11-01 19:02:33,613] INFO: Building market tensors (win=128) ...
+[2025-11-01 19:02:47,826] INFO: Tensors ready. X=(169053, 8, 16, 16) Y=(169053,) (pos=85612 neg=83441)
+[2025-11-01 19:02:47,958] INFO: Device = cuda
+[2025-11-01 19:02:49,309] INFO: Start training: epochs=15 bs=64 lr=0.0001 amp=True
+[2025-11-01 19:04:50,343] INFO: Epoch 001/15 | loss=0.694519
+[2025-11-01 19:06:51,111] INFO: Epoch 002/15 | loss=0.692818
+[2025-11-01 19:08:51,660] INFO: Epoch 003/15 | loss=0.692310
+[2025-11-01 19:10:59,701] INFO: Epoch 004/15 | loss=0.692121
+[2025-11-01 19:13:12,873] INFO: Epoch 005/15 | loss=0.692335
+[2025-11-01 19:15:28,223] INFO: Epoch 006/15 | loss=0.692801
+[2025-11-01 19:17:49,458] INFO: Epoch 007/15 | loss=0.691589
+[2025-11-01 19:20:29,269] INFO: Epoch 008/15 | loss=0.691843
+[2025-11-01 19:23:12,144] INFO: Epoch 009/15 | loss=0.691499
+[2025-11-01 19:25:33,957] INFO: Epoch 010/15 | loss=0.690944
+[2025-11-01 19:27:53,068] INFO: Epoch 011/15 | loss=0.690410
+[2025-11-01 19:30:10,191] INFO: Epoch 012/15 | loss=0.690587
+[2025-11-01 19:32:28,126] INFO: Epoch 013/15 | loss=0.690132
+[2025-11-01 19:34:45,149] INFO: Epoch 014/15 | loss=0.689613
+[2025-11-01 19:37:02,687] INFO: Epoch 015/15 | loss=0.689431
+[2025-11-01 19:37:02,776] INFO: Checkpoint saved to: user_data/models/market_dit.pt
+[2025-11-01 19:37:02,777] INFO: Done. elapsed=2069.21s
+[2025-11-01 19:37:02,985] INFO: ===== Train Market DiT (end) =====
